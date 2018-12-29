@@ -1488,13 +1488,13 @@ blockquote p {
 	padding-top: 10px;
 }
 #form-komentar img#captcha {
-	height: 40px;
+	height: 80px;
 }
 #form-komentar .captcha a {
 	margin-left:10px;
 }
 #form-komentar .captcha_code input {
-	width: 100px;
+	width: 200px;
 }
 #form-komentar .submit input {
 	font-size: 15px; padding: 3px 10px;
