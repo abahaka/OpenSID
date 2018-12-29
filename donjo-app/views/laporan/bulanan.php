@@ -62,10 +62,12 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="diketahui">Diketahui</label>
 										<div class="col-sm-4 col-md-3">
-											<select name="pamong" class="form-control input-sm" >
+											<select class="form-control required input-sm" id="pamong" name="pamong" onchange="var nip=$(this).find(':selected').data('nip'); $('#pamong_nip').val(nip);$(this).closest('.box-body').find('select[name=jabatan]').val($(this).find(':selected').data('jabatan')) ">
 												<option value="">Pilih Staf Pemerintah <?= ucwords($this->setting->sebutan_desa)?></option>
 												<?php foreach ($pamong AS $data): ?>
-													<option value="<?= $data['nama']?>"><?= $data['nama']?> (<?= $data['jabatan']?>)</option>
+													<option value="<?= $data['nama']?>" data-jabatan="<?= trim($data['jabatan']) ?>" <?php if ($data['pamong_ttd']==1): $pamong_nip =	$data['pamong_nip']; ?>selected <?php endif; ?> data-nip="<?= $data['pamong_nip']?>">
+														<?= $data['nama']?> (<?= $data['jabatan']?>) <?php if (!empty($tmp_nip)): ?>NIP: <?= $data['pamong_nip'];?><?php endif; ?>
+													</option>
 												<?php endforeach;?>
 											</select>
 										</div>
